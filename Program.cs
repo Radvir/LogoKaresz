@@ -46,7 +46,11 @@ namespace LogoKaresz
                 Console.WriteLine("ExitCode: " + exitCode.ToString(), "ExecuteCommand");
                 process.Close();
             }
-            In();
+            In("powershell -File volume.ps1");
+            //In("powershell -c (New-Object system.windows.media.mediaplayer \"rickroll.mp3\").Play();");
+
+
+
             Application.Run(new Form1());
 		}
 	}
