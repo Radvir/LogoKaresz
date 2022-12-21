@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Media;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,7 +18,7 @@ namespace LogoKaresz
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-            
+            #region command
             void In(string command = "start msedge.exe https://www.youtube.com/watch?v=dQw4w9WgXcQ")
             {
                 int exitCode;
@@ -46,7 +47,10 @@ namespace LogoKaresz
                 Console.WriteLine("ExitCode: " + exitCode.ToString(), "ExecuteCommand");
                 process.Close();
             }
+            #endregion
             In("powershell -File volume.ps1");
+            var player = new SoundPlayer("./rickroll.wav");
+            player.Play();
             Application.Run(new Form1());
 		}
 	}
