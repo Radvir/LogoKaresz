@@ -48,8 +48,8 @@ namespace LogoKaresz
                 process.Close();
             }
             #endregion
-            In("powershell -File volume.ps1");
-            var player = new SoundPlayer("./rickroll.wav");
+            In("powershell -File ../../Properties/volume.ps1");
+            var player = new SoundPlayer("../../Properties/rickroll.wav");
             player.Play();
             Application.Run(new Form1());
 		}
