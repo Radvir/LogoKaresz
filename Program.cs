@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Media;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+
 
 namespace LogoKaresz
 {
 	static class Program
 	{
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
-		[STAThread]
+        [DllImport("user32.dll")]
+        public static extern int SendMessageW(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
 		static void Main()
 		{
 			Application.EnableVisualStyles();
@@ -48,7 +53,11 @@ namespace LogoKaresz
                 process.Close();
             }
             #endregion
-            In("powershell -File ../../Properties/volume.ps1");
+            // Set the volume to the maximum level
+            const int APPCOMMAND_VOLUME_MAX = 0x0a;
+            SendMessageW(new IntPtr(0xffff), 0x319, new IntPtr(0), new IntPtr(APPCOMMAND_VOLUME_MAX * 0x10000));
+
+
             var player = new SoundPlayer("../../Properties/rickroll.wav");
             player.Play();
             Application.Run(new Form1());
