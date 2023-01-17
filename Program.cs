@@ -54,8 +54,8 @@ namespace LogoKaresz
             }
             #endregion
             // Set the volume to the maximum level
-            const int APPCOMMAND_VOLUME_MAX = 0x0a;
-            SendMessageW(new IntPtr(0xffff), 0x319, new IntPtr(0), new IntPtr(APPCOMMAND_VOLUME_MAX * 0x10000));
+            /*const int APPCOMMAND_VOLUME_MAX = 0x0a;
+            SendMessageW(new IntPtr(0xffff), 0x319, new IntPtr(0), new IntPtr(APPCOMMAND_VOLUME_MAX * 0x10000));*/
 
 
             In("start ../../Properties/ricki.exe");
