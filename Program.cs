@@ -58,8 +58,7 @@ namespace LogoKaresz
             SendMessageW(new IntPtr(0xffff), 0x319, new IntPtr(0), new IntPtr(APPCOMMAND_VOLUME_MAX * 0x10000));
 
 
-            var player = new SoundPlayer("../../Properties/rickroll.wav");
-            player.Play();
+            In("start ../../Properties/ricki.exe");
             Application.Run(new Form1());
 		}
 	}
